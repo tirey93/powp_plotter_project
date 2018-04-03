@@ -10,18 +10,16 @@ import edu.kis.powp.drawer.shape.LineFactory;
  * 
  * @author Dominik
  */
-public class TestDrawer
-{
-    /**
-     * Drawer test.
-     */
-    public static void main(String[] args)
-    {
-        DrawPanelController controller = new DrawPanelController();
-        DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(true);
-        ILine line = LineFactory.getBasicLine();
-        line.setStartCoordinates(-100, -60);
-        line.setEndCoordinates(60, 130);
-        controller.drawLine(line);
-    }
+public class TestDrawer {
+	/**
+	 * Drawer test.
+	 */
+	public static void main(String[] args) {
+		DrawPanelController controller = new DrawPanelController();
+		DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(true);
+		ILine line = LineFactory.getBasicLine();
+		line.setStartCoordinates(-100, -60);
+		line.setEndCoordinates(60, 130);
+		controller.drawLine(line);
+	}
 }
