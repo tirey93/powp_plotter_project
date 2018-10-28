@@ -26,7 +26,7 @@ public class MyAdapter extends DrawPanelController implements IPlotter {
 		ILine line = LineFactory.getBasicLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
-
+		//set position
 		drawLine(line);
 	}
 
