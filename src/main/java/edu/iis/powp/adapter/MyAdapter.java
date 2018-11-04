@@ -1,6 +1,7 @@
 package edu.iis.powp.adapter;
 
 import edu.iis.client.plottermagic.IPlotter;
+import edu.iis.powp.features.DrawerFeature;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.ILine;
 import edu.kis.powp.drawer.shape.LineFactory;
@@ -10,9 +11,11 @@ import edu.kis.powp.drawer.shape.LineFactory;
  */
 public class MyAdapter extends DrawPanelController implements IPlotter {
 	private int startX = 0, startY = 0;
+	private DrawPanelController drawController = null;
 
-	public MyAdapter() {
+	public MyAdapter(DrawPanelController drawPanelController) {
 		super();
+		drawController = drawPanelController;
 	}
 
 	@Override
@@ -26,8 +29,8 @@ public class MyAdapter extends DrawPanelController implements IPlotter {
 		ILine line = LineFactory.getBasicLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
-		setPosition(x, y);
-		drawLine(line);
+		this.setPosition(x, y);
+		drawController.drawLine(line);
 	}
 
 	@Override

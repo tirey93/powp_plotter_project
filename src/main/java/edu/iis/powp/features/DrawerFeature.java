@@ -9,7 +9,7 @@ public class DrawerFeature {
 	private static DrawPanelController drawerController;
 
 	/**
-	 * Setup Drawer Plugin and add to application.
+	 * Setup Drawer Plugin and add to applicatiHon.
 	 * 
 	 * @param application
 	 *            Application context.
@@ -20,8 +20,9 @@ public class DrawerFeature {
 		drawerController = new DrawPanelController();
 		application.addComponentMenu(DrawPanelController.class, "Draw Panel", 0);
 		application.addComponentMenuElement(DrawPanelController.class, "Clear Panel", selectClearPanelOptionListener);
-
+		
 		drawerController.initialize(application.getFreePanel());
+		
 	}
 
 	/**
