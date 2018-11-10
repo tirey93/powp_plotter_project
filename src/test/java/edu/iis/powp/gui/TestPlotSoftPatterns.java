@@ -15,6 +15,7 @@ import edu.iis.powp.events.predefine.SelectTestFigureOptionListenerJoe2;
 import edu.iis.powp.features.DrawerFeature;
 import edu.kis.powp.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.drawer.panel.DrawPanelController;
+import edu.kis.powp.drawer.shape.LineFactory;
 
 public class TestPlotSoftPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -49,6 +50,13 @@ public class TestPlotSoftPatterns {
 
 		IPlotter plotter = new PlotterSimulator(DrawerFeature.getDrawerController());
 		application.addDriver("Buggy Simulator", plotter);
+		
+		IPlotter plotterDot = new PlotterSimulator(DrawerFeature.getDrawerController(), LineFactory.getDottedLine());
+		application.addDriver("Dotted Simulator", plotterDot);
+		
+		IPlotter plotterSpec = new PlotterSimulator(DrawerFeature.getDrawerController(), LineFactory.getSpecialLine());
+		application.addDriver("Special Simulator", plotterSpec);
+		
 
 		application.updateDriverInfo();
 	}
