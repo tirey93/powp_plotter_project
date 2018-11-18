@@ -7,8 +7,12 @@ public class CommandDrawLineToPostion implements PlotterCommand {
 	private int y;
 	@Override
 	public void execute(IPlotter driver) {
-		// TODO Auto-generated method stub
+		driver.drawTo(x, y);
 
+	}
+	public CommandDrawLineToPostion(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 
 }

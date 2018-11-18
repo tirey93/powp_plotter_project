@@ -7,8 +7,11 @@ public class CommandSetPosition implements PlotterCommand {
 	private int y;
 	@Override
 	public void execute(IPlotter driver) {
-		// TODO Auto-generated method stub
-
+		driver.setPosition(x, y);
+	}
+	public CommandSetPosition(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 
 }
