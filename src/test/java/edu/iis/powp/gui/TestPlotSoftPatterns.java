@@ -10,10 +10,12 @@ import edu.iis.client.plottermagic.IPlotter;
 import edu.iis.powp.adapter.PlotterSimulator;
 import edu.iis.powp.app.Application;
 import edu.iis.powp.events.predefine.SelectChangeVisibleOptionListener;
-import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
+import edu.iis.powp.events.predefine.SelectTestFigureOptionListenerJoe1;
+import edu.iis.powp.events.predefine.SelectTestFigureOptionListenerJoe2;
 import edu.iis.powp.features.DrawerFeature;
 import edu.kis.powp.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.drawer.panel.DrawPanelController;
+import edu.kis.powp.drawer.shape.LineFactory;
 
 public class TestPlotSoftPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -25,12 +27,14 @@ public class TestPlotSoftPatterns {
 	 *            Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+		SelectTestFigureOptionListenerJoe1 selectTestFigureOptionListener1 = new SelectTestFigureOptionListenerJoe1(
+				application.getDriverManager());
+		SelectTestFigureOptionListenerJoe2 selectTestFigureOptionListener2 = new SelectTestFigureOptionListenerJoe2(
 				application.getDriverManager());
 		
 		
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
+		application.addTest("Figure Joe 1", selectTestFigureOptionListener1);
+		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
 	}
 
 	/**
@@ -46,6 +50,13 @@ public class TestPlotSoftPatterns {
 
 		IPlotter plotter = new PlotterSimulator(DrawerFeature.getDrawerController());
 		application.addDriver("Buggy Simulator", plotter);
+		
+		IPlotter plotterDot = new PlotterSimulator(DrawerFeature.getDrawerController(), LineFactory.getDottedLine());
+		application.addDriver("Dotted Simulator", plotterDot);
+		
+		IPlotter plotterSpec = new PlotterSimulator(DrawerFeature.getDrawerController(), LineFactory.getSpecialLine());
+		application.addDriver("Special Simulator", plotterSpec);
+		
 
 		application.updateDriverInfo();
 	}

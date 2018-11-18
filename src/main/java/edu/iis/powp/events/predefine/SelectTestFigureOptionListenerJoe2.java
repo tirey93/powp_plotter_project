@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import edu.iis.client.plottermagic.preset.FiguresJoe;
 import edu.iis.powp.app.DriverManager;
 
-public class SelectTestFigureOptionListener implements ActionListener {
+public class SelectTestFigureOptionListenerJoe2 implements ActionListener {
 
 	private DriverManager driverManager;
 
-	public SelectTestFigureOptionListener(DriverManager driverManager) {
+	public SelectTestFigureOptionListenerJoe2(DriverManager driverManager) {
 		this.driverManager = driverManager;
 	}
 
