@@ -1,7 +1,7 @@
 package edu.iis.powp.command;
 
-import edu.iis.powp.app.DriverManager;
+import edu.iis.client.plottermagic.IPlotter;
 
 public interface PlotterCommand {
-	public void execute(DriverManager driver);
+	public void execute(IPlotter driver);
 }
